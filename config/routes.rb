@@ -4,13 +4,6 @@ Rails.application.routes.draw do
   root to: "deliveries#index"
   # Routes for the User resource:
 
-  # CREATE
-  post("/insert_user", { :controller => "users", :action => "create" })
-          
-  # READ
-  get("/users", { :controller => "users", :action => "index" })
-  
-  get("/users/:path_id", { :controller => "users", :action => "show" })
   
   # UPDATE
   

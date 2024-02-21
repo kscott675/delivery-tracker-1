@@ -21,6 +21,7 @@ task({ :sample_data => :environment}) do
       if delivery.supposed_to_arrive_on < Time.now
         delivery.arrived = [true, false].sample
       else
+        
         delivery.arrived = false
       end
 
