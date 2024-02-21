@@ -8,7 +8,7 @@ task({ :sample_data => :environment}) do
   usernames.each do |username|
     user = User.new
     user.email = "#{username}@example.com"
-    user.password = "password"
+    user.encrypted_password = "password"
     user.save
 
     10.times do
