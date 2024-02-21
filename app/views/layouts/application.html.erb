@@ -12,9 +12,9 @@
 
   <body>
     <nav>
-      <a href="/">Delivery Tracker</a>
 
       <% if current_user != nil %>
+        <a href="/">Delivery Tracker</a>
         <a href="/users/sign_out">Sign Out</a>
         <a href="/users/edit">Edit profile</a>
       <% else %>
@@ -37,6 +37,27 @@
         <%= alert %>
       </div>
     <% end %>
-    <%= yield %>
-  </body>
-</html>
+
+    <% if current_user != nil %>
+      <hr>
+      <div>
+        <h1>
+          Delivery Tracker
+        </h1>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <p>
+          Know if something gets lost in the mail.
+        </p>
+        <hr>
+      <% else %>
+        <p>You need to sign in or sign up before continuing.</p>
+      <% end %>
+      <div>
+
+        <%= yield %>
+      </body>
+    </html>
