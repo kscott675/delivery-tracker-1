@@ -45,29 +45,27 @@
 </div>
 
 <hr>
-<div class="waiting_on">
+<div class="waiting_on" style="background-color: #FAFAD2;">
   <h2>Waiting on</h2>
   <ul>
     <% @deliveries_waiting.each do |a_delivery| %>
+    <div>
       <li>
         <div><%= a_delivery.description %></div>
-
-        <div><p style= "color: red;">
-          Supposed to arrive on <%= a_delivery.supposed_to_arrive_on %>
-          <%= a_delivery.details %>
-        </p></div>
-
+        <div style= "color: red;">
+          Supposed to arrive on <%= a_delivery.supposed_to_arrive_on %></div>
         <div><form action="/modify_delivery/<%= a_delivery.id %>" method="post">
           <input type="hidden" name="query_arrived" value="0">
           <button style="margin:5px;">Mark as received</button>
         </form></div>
+        </div>
       </li>
     <% end %>
   </div>
 
   <hr>
 
-  <div class="received">
+  <div class="received" style="background-color: #90EE90;">
     <h2>Received</h2>
     <ul>
       <% @deliveries_received.each do |a_delivery| %>

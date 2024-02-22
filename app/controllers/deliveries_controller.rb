@@ -1,15 +1,21 @@
 class DeliveriesController < ApplicationController
   def index
+    
+    if current_user != nil
     deliveries = Delivery.where(user_id: current_user.id)
 
     deliveries_waiting = Delivery.where(arrived: false)
     deliveries_received = Delivery.where(arrived: true)
 
     @deliveries_waiting = deliveries_waiting.order({ :created_at => :desc })
-    @deliveries_received = deliveries_received.order({ :created_at => :desc })\
+    @deliveries_received = deliveries_received.order({ :updated_at => :desc })\
 
 
     render({ :template => "deliveries/index" })
+
+    else 
+      redirect_to("/users/sign_in")
+    end
   end
 
   def show
